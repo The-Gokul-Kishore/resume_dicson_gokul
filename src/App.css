@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Overall Body */
+body {
+  font-family: 'Poppins', sans-serif; /* Sleek, modern font */
+  background-color: #1F1D36; /* Deep Purple background */
+  color: #F8F8FF; /* Light text color */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+/* Centered Container */
+.container {
+  display: grid;
+  grid-template-areas: 
+    "header"
+    "note"
+    "form"
+    "limit"
+    "button"
+    "loading";
+  grid-template-columns: 1fr;
+  gap: 20px; /* Space between grid items */
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #38375D; /* Muted Violet for the container */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Header */
+.header {
+  grid-area: header;
+  background-color: #FF6F61; /* Coral Red background */
+  color: #F8F8FF; /* Light text color */
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+/* Note Section */
+.note {
+  grid-area: note;
+  background-color: #2C2E4F; /* Darker blue background */
+  padding: 20px; /* Increased padding */
+  border-radius: 5px;
+  color: #F8F8FF; /* Light text color */
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Textarea */
+textarea {
+  grid-area: form;
+  width: 100%;
+  border: 1px solid #FF6F61; /* Coral Red border */
+  background-color: #1F1D36; /* Dark background */
+  color: #F8F8FF; /* Light text color */
+  padding: 15px;
+  border-radius: 5px;
+  height: 150px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Input Field for Limit */
+input[type="number"] {
+  grid-area: limit;
+  border: 1px solid #FF6F61; /* Coral Red border */
+  background-color: #1F1D36; /* Dark background */
+  color: #F8F8FF; /* Light text color */
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Button */
+button {
+  grid-area: button;
+  background-color: #FF6F61; /* Coral Red */
+  color: #F8F8FF; /* Light text */
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 100%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #FF9A8B; /* Soft Coral on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+button:disabled {
+  background-color: #021526;
+  cursor: not-allowed;
+}
+
+/* Progress Bar Container */
+.progress-bar-container {
+  grid-area: loading;
+  width: 100%;
+  background-color: #2C2E4F; /* Darker blue background */
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.progress-bar {
+  height: 20px;
+  width: 0;
+  background-color: #FF6F61; /* Coral Red background */
+  border-radius: 5px;
+  color: #F8F8FF; /* Light text color */
+  text-align: center;
+  line-height: 20px;
+}
+
+/* Disable Input and Button while Loading */
+.loading-active input,
+.loading-active textarea,
+.loading-active button {
+  pointer-events: none;
+  opacity: 0.6; /* Fade out the input and button */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    grid-template-areas:
+      "header"
+      "note"
+      "form"
+      "limit"
+      "button"
+      "loading";
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+/* Resume Table */
+.resume-table {
+  margin-top: 20px;
+  background-color: #1F1D36; /* Deep Purple */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.resume-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.resume-table th, .resume-table td {
+  border: 1px solid #FF6F61; /* Coral Red */
+  padding: 10px;
+  text-align: left;
+}
+
+.resume-table th {
+  background-color: #FF6F61; /* Coral Red */
+  color: #F8F8FF; /* Almost White */
+}
+
+.resume-table td {
+  background-color: #38375D; /* Muted Violet */
+  color: #F8F8FF; /* Almost White */
+}
+
+.resume-table a {
+  color: #F5C518; /* Soft Yellow */
+  text-decoration: none;
+}
+
+.resume-table a:hover {
+  text-decoration: underline;
 }
